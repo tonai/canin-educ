@@ -1,4 +1,4 @@
-# Plugins V2
+# Canin Educ
 
 Connect to mysql:
 ```sh
