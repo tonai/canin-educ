@@ -1,0 +1,87 @@
+body {
+width: 1000px;
+background-color: #a3bd7c;
+background-repeat: repeat-y;
+margin: auto;}
+
+	#page {
+	width: 1000px;
+	border: 3px solid #26380b;
+	background-color: #4c6428;
+	color: white;}
+	
+	a {
+	color: #c69c6c;
+	text-decoration: none;}
+	
+	a:hover {
+	color: #92683e;
+	background-color: #8fb852;}
+	
+	#page > img {
+	border: 1px solid #26380b;}
+
+	#menu {
+	float: left;
+	width: 150px;
+	text-align: center;}
+
+		object {
+		margin-top: 20px;}
+
+		#menu a {
+		display: block;
+		margin-top: 10px;
+		width: 150px;
+		height:35px;
+		padding-top:15px;
+		text-decoration: none;
+		color: #8fb852;
+		background-color: #c69c6c;
+		background-image: url("logo/bouton.jpg");}
+
+		#menu a:hover {
+		color: #4c6428;
+		background-color: #92683e;
+		background-position: 0px -50px;}
+		
+		#menu a:active {
+		padding-top: 15px;
+		height: 35px;
+		Font-size: 120%;}
+		
+		a:active, a:focus {
+		outline: none;}
+
+
+	#footer {
+	margin-top: 20px;
+	margin-bottom: 0px;
+	width: 1000px;
+	height: 200px;}
+
+	#corps {
+	margin-top: 20px;
+	margin-left: 20px;
+	margin-right: 20px;
+	height: 497px;
+	overflow: auto;
+	text-align: justify;}
+	
+		#corps .float {
+		float: right;
+		margin: 0px 10px 10px 10px;}
+		
+		#corps .center, #corps h1 {
+		text-align:center;}
+		
+		tr {
+		margin-top: 10px;
+		margin-left: 10px;}
+
+			td {
+			width: 270px;
+			text-align: center;}
+
+				img {
+				border: none;}
