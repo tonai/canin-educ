@@ -2,11 +2,11 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" >
 	<head>
-		<title>Benoît RENOU - Educateur canin</title>
+		<title>Benoï¿½t RENOU - Educateur canin</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 		<meta name="author" content="Tony CABAYE" />
-		<meta name="description" content="Benoît Renou, Educateur canin dans le Nord (59)" />
-		<meta name="keywords" content="Benoît Renou, éducateur, canin, chien, élever, éduquer, wooden park, nord, lille, pistage, agility, sport canin, 59, dresser" />
+		<meta name="description" content="Benoï¿½t Renou, Educateur canin dans le Nord (59)" />
+		<meta name="keywords" content="Benoï¿½t Renou, ï¿½ducateur, canin, chien, ï¿½lever, ï¿½duquer, wooden park, nord, lille, pistage, agility, sport canin, 59, dresser" />
 		<link rel="stylesheet" media="screen" type="text/css" title="Design" href="design.css">
 		<script language="javascript" src="javascript.js">
 		</script>
@@ -25,7 +25,7 @@
 				<script language="javascript">
 				var menu='';
 				menu+='<a href="javascript:fonc_accueil()"><font face="Arial"><b>Accueil</b></font></a>';
-				menu+='<a href="javascript:fonc_education()"><font face="Arial"><b>L’éducation</b></font></a>';
+				menu+='<a href="javascript:fonc_education()"><font face="Arial"><b>L\'Ã©ducation</b></font></a>';
 				menu+='<a href="javascript:fonc_sportcanin()"><font face="Arial"><b>Sport canin</b></font></a>';
 				menu+='<a href="javascript:fonc_pistage()"><font face="Arial"><b>Le pistage</b></font></a>';
 				menu+='<a href="javascript:fonc_boutique()"><font face="Arial"><b>La boutique</b></font></a>';
@@ -45,39 +45,41 @@
 				<a href="index.php?page=contact"><b>Contacts</b></a></font>
 				</noscript>
 				<?php
-					mysql_connect("mysql5-5", "canineducateur", "f75IaxbG");
-					mysql_select_db("canineducateur");
+					$mysqli = mysqli_connect("localhost", "canineducateur", "ce");
+					mysqli_select_db($mysqli, "canineducateur");
 					$adresse_ip=$_SERVER['REMOTE_ADDR'];
 					$timestamp=time();
-					$reponse=mysql_query("SELECT COUNT(*) AS existe FROM visiteur WHERE ip='$adresse_ip'");
-					//$reponse=mysql_query('SELECT COUNT  AS existe FROM visiteur WHERE ip='.$adresse_ip);
-					$nombre=mysql_fetch_array($reponse);
-					$reponse=mysql_query("SELECT * FROM visiteur WHERE ip='$adresse_ip'");
-					$donnees=mysql_fetch_array($reponse);
+          /*
+					$reponse=mysqli_query($mysqli, "SELECT COUNT(*) AS existe FROM visiteur WHERE ip='$adresse_ip'");
+					$nombre=mysqli_fetch_array($reponse);
+					$reponse=mysqli_query($mysqli, "SELECT * FROM visiteur WHERE ip='$adresse_ip'");
+					$donnees=mysqli_fetch_array($reponse);
 					$ancien_temp=$donnees['timestamp'];
 					if ($nombre['existe']==0)
 					{
-						mysql_query("INSERT INTO visiteur VALUES('','$adresse_ip', '$timestamp')");
+						mysqli_query($mysqli, "INSERT INTO visiteur VALUES('','$adresse_ip', '$timestamp')");
 					}
 					else
 					{
-						while ($donnees=mysql_fetch_array($reponse))
+						while ($donnees=mysqli_fetch_array($reponse))
 							{
 								$ancien_temp=$donnees['timestamp'];
 							}
 						if ($ancien_temp<$timestamp-10*60)
 						{
-							mysql_query("INSERT INTO visiteur VALUES('','$adresse_ip','$timestamp')");
+							mysqli_query($mysqli, "INSERT INTO visiteur VALUES('','$adresse_ip','$timestamp')");
 						}
 						else
 						{
-							mysql_query("UPDATE visiteur SET timestamp='$timestamp' WHERE (ip='$adresse_ip') AND (timestamp='$ancien_temp')");
+							mysqli_query($mysqli, "UPDATE visiteur SET timestamp='$timestamp' WHERE (ip='$adresse_ip') AND (timestamp='$ancien_temp')");
 						}
 					}
-					$reponse=mysql_query('SELECT COUNT(*) AS visites FROM visiteur');
-					$donnees=mysql_fetch_array($reponse);
+					$reponse=mysqli_query($mysqli, 'SELECT COUNT(*) AS visites FROM visiteur');
+					$donnees=mysqli_fetch_array($reponse);
 					echo '<p>Nombre de visiteurs : <br/>'.$donnees['visites'].'</p>';
-					mysql_close();
+          */
+					echo '<p>Nombre de visiteurs : <br/>0</p>';
+					mysqli_close($mysqli);
 				?>
 			</div>
 			<div id="corps">
